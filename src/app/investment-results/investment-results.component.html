@@ -1,0 +1,31 @@
+@if(calculateFlag){
+<section>
+    <table>
+        <thead>
+            <th>Year</th>
+            <th>Investment Value</th>
+            <th>Interest(Year)</th>
+            <th>Total Interest</th>
+            <th>Invested Capital</th>
+        </thead>
+        <tbody>
+            @for (result of resultsAry; track result.year) {
+            <tr>
+                <td>{{ result.year }}</td>
+                <td>{{ result.valueEndOfYear | currency: 'CAD' : 'symbol-narrow' : '4.2-2' }}</td>
+                <td>{{ result.interest | currency: 'CAD' : 'symbol-narrow' : '4.2-2' }}</td>
+                <td>{{ result.totalInterest | currency: 'CAD' : 'symbol-narrow' : '4.2-2' }}</td>
+                <td>{{ result.totalAmountInvested | currency: 'CAD' : 'symbol-narrow' : '4.2-2' }}</td>
+            </tr>
+
+            }
+
+        </tbody>
+    </table>
+</section>
+}
+@else {
+<div style="text-align: center;">
+    <p>Please enter some values and press "Calculate"</p>
+</div>
+}
